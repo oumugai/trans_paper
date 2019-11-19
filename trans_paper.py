@@ -10,6 +10,7 @@ import base64
 import requests
 import json
 import sys
+import logging
 from flask import Flask, render_template, request
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler

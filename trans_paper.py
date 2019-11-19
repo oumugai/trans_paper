@@ -27,7 +27,6 @@ def result():
         ws.send(json.dumps({"type":"res", "data":"pdf downloading..."}))
         res = requests.get(url)
         ws.send(json.dumps({"type":"res", "data":"converting to image from pdf..."}))
-        print(res.content)
         images = convert_from_bytes(res.content)
         ws.send(json.dumps({"type":"res", "data":"create image..."}))
         font = cv2.FONT_HERSHEY_SIMPLEX

@@ -16,10 +16,6 @@ from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 
 app = Flask(__name__)
-app.logger.disabled = True  
-# werkzeugのLoggerを無効化する
-werkzeug_logger = logging.getLogger('werkzeug')   
-werkzeug_logger.disabled = True  
 
 @app.route("/res")
 def result():

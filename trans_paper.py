@@ -28,8 +28,8 @@ def result():
         res = requests.get(url)
         ws.send(json.dumps({"type":"res", "data":"converting to image from pdf..."}))
         images = convert_from_bytes(res.content)
-        font = cv2.FONT_HERSHEY_SIMPLEX
         ws.send(json.dumps({"type":"res", "data":"create image..."}))
+        font = cv2.FONT_HERSHEY_SIMPLEX
         api =  PyTessBaseAPI(lang=lang, psm=PSM.SINGLE_COLUMN)
         html = ""
         for num, image in enumerate(images):

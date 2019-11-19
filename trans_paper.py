@@ -16,9 +16,7 @@ from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 
 app = Flask(__name__)
-logger = logging.getLogger('wsgi.websockets')
-logger.setLevel(logging.ERROR)
-logger.addHandler(logging.StreamHandler())
+logging.basicConfig(level=logging.INFO)
 
 @app.route("/res")
 def result():

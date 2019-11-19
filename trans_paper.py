@@ -106,5 +106,5 @@ def pipe():
 
 if __name__ == '__main__':
     app.debug = True
-    server = pywsgi.WSGIServer(("", 8000), app, handler_class=WebSocketHandler)#, log=app.logger, error_log=app.logger)
+    server = pywsgi.WSGIServer(("", 8000), app, handler_class=WebSocketHandler, log=logging.getLogger('pyswgi'), error_log=logging.getLogger('pyswgi'))
     server.serve_forever()

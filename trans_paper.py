@@ -9,6 +9,7 @@ import numpy as np
 import base64
 import requests
 import json
+import sys
 from flask import Flask, render_template, request
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
@@ -100,5 +101,5 @@ def pipe():
 
 if __name__ == '__main__':
     app.debug = True
-    server = pywsgi.WSGIServer(("", 8000), app, handler_class=WebSocketHandler, log=app.logger)
+    server = pywsgi.WSGIServer(("", 8000), app, handler_class=WebSocketHandler, log=sys.stderr)
     server.serve_forever()

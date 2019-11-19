@@ -10,12 +10,11 @@ import base64
 import requests
 import json
 import sys
-import logging
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, logging
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 
-logger = logging.getLogger(__name__)
+logger = logging.create_logger(__name__)
 app = Flask(__name__)
 app.logger.setLevel(logging.ERROR)
 

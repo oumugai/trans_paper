@@ -37,7 +37,7 @@ def result():
             image = np.array(image, dtype=np.uint8)
             ret, image = cv2.threshold(image, 254, 255, cv2.THRESH_BINARY)
             copy_img = cv2.cvtColor(np.array(cv2.threshold(image, 60, 255, cv2.THRESH_BINARY)[1], dtype=np.uint8), cv2.COLOR_RGB2BGR)
-            for i in range(10):
+            for i in range(15):
                 image = cv2.GaussianBlur(image,(3,3),0)
                 ret, image = cv2.threshold(image, 254, 255, cv2.THRESH_BINARY)
                 

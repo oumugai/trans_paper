@@ -17,6 +17,8 @@ from geventwebsocket.handler import WebSocketHandler
 
 logger = logging.getLogger(__name__)
 app = Flask(__name__)
+app.app.logger.setLevel(logging.ERROR)
+
 
 @app.route("/res")
 def result():

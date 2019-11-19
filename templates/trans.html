@@ -1,0 +1,32 @@
+<!-- index.html -->
+<html>
+    <head>
+        <script type="text/javascript">
+            var ws = new WebSocket("ws://localhost:80/res?url={{url}}");
+            var flag = false;
+
+            ws.onmessage = function(e) {
+              var res = JSON.parse(e.data)
+              if(res.type == "html"){
+                document.getElementById("progress_bar").style.display = "none"
+                document.getElementById("text-field").innerHTML = res.data;
+              }
+              else if(res.type == "res"){
+                document.getElementById("text-field").innerHTML = res.data;
+              }
+              else{
+                document.getElementById("progress_bar").style.display = "block"
+                document.getElementById("file_progress").value = res.progress;
+                document.getElementById("text-field").innerHTML = res.data;
+              }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Translate paper</h1>
+        <div id="progress_bar", style="display:none">
+          <progress id="file_progress" max="100" value="70"> 70% </progress>
+        </div>
+        <p id="text-field"></p>
+    </body>
+</html>

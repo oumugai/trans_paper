@@ -1,0 +1,17 @@
+<!-- index.html -->
+<html>
+    <head>
+        <script type="text/javascript">
+            function jump(){
+                window.location.href = 'http://localhost:80/trans?url=' + document.getElementById("url").value;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Translate paper</h1>
+        <div style="text-align:center;">
+            <input id="url" style="width:80%; height:5%; font-size: 120%;"/><br>
+            <button type="submit" style="font-size: 1.4em;" onclick="jump()">translate!!</button>
+        </div>
+    </body>
+</html>

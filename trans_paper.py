@@ -6,7 +6,6 @@ from PIL import Image
 import cv2
 from pdf2image import convert_from_path, convert_from_bytes
 import numpy as np
-import matplotlib.pyplot as plt
 import base64
 import requests
 import json

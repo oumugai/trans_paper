@@ -10,10 +10,12 @@ import base64
 import requests
 import json
 import sys
+import logging
 from flask import Flask, render_template, request
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 
+logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 @app.route("/res")
@@ -101,5 +103,5 @@ def pipe():
 
 if __name__ == '__main__':
     app.debug = True
-    server = pywsgi.WSGIServer(("", 8000), app, handler_class=WebSocketHandler, log=sys.stderr)
+    server = pywsgi.WSGIServer(("", 8000), app, handler_class=WebSocketHandler, log=logger)
     server.serve_forever()
